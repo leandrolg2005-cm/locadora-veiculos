@@ -3,256 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre e reserve carros para sua próxima viagem com a YourCar.">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby" />
-    <title>YourCar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Scoutie+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>YourCar</title>
 </head>
 <body>
     <header class="topo">
-        <div class="navbar">
-            <img src="img/logo.png" alt="logo">
-            <ul class="nav">
-                <li><a href="#">Iníco</a></li>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
+        <nav class="navbar" aria-label="Navegação principal">
+            <a class="logo-link" href="#inicio" aria-label="YourCar, início"><img src="img/logo.png" alt="YourCar"></a>
+            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav" id="menu-principal">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#carros">Carros</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-            <div class="btn">
-                <button type="button">Cadastrar</button>
-            </div>    
-        </div>
+            <a class="register-link" href="#contato">Cadastrar</a>
+        </nav>
     </header>
-
-    <section class="home">
-        <div class="home-text">
-            <h1>Alugue agora o seu carro para sua próxima viagem</h1>
-            <p>Encontre carros de diferentes modelos, escolha o que combina com você e faça sua reserva de forma rápida, fácil e segura.</p>
-            <a href="#" class="home-btn">Proucurar carros</a>
-        </div>
-        <div class="home-image">
-            <img src="img/carros.png" alt="carros">
-        </div>
-    </section>
-    
-    <div class="main">
-        <div class="cabecalho">
-            <h1>
-                destaques destaques destaques destaques destaques destaques destaques destaques destaques destaques destaques
-                destaques destaques destaques destaques destaques destaques destaques destaques destaques destaques destaques 
-            </h1>
-        </div>
-        <div class="caixa">
-            <div class="card card1">
-                <div class="card-front">
-                    <img src="img/uno.jpg" alt="image1">
-                    <div class="fix"> 
-                        <h1>2099 UNO com Escada</h1>
-                        <p>Racha <span>Premio</span></p>
-                        <h2>$80,500</h2>
-                        <div class="fix2">
-                            <span class="material-symbols-outlined">explore_nearby</span>
-                            <p>Brasil, RJ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <h1>2099 UNO com Escada</h1>
-                    <p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p>
-                    <h2>Informações</h2>
-                    <p>2 portas</p>
-                    <p>4 passageiros</p>
-                    <p>Manual</p>
-                    <button>Alugar agora</button>
-                </div>
+    <main>
+        <section class="home" id="inicio">
+            <div class="home-text">
+                <h1>Alugue agora o seu carro para sua próxima viagem</h1>
+                <p>Encontre carros de diferentes modelos, escolha o que combina com você e faça sua reserva de forma rápida, fácil e segura.</p>
+                <a href="#carros" class="home-btn">Procurar carros</a>
             </div>
-
-            <div class="card card2">
-                <div class="card-front">
-                    <img src="img/uno.jpg" alt="image1">
-                    <div class="fix"> 
-                        <h1>2099 UNO com Escada</h1>
-                        <p>Racha <span>Premio</span></p>
-                        <h2>$80,500</h2>
-                        <div class="fix2">
-                            <span class="material-symbols-outlined">explore_nearby</span>
-                            <p>Brasil, RJ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <h1>2099 UNO com Escada</h1>
-                    <p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p>
-                    <h2>Informações</h2>
-                    <p>2 portas</p>
-                    <p>4 passageiros</p>
-                    <p>Manual</p>
-                    <button>Alugar agora</button>
-                </div>
+            <div class="home-image"><img src="img/carros.png" alt="Carros disponíveis para aluguel"></div>
+        </section>
+        <section class="main" id="carros" aria-labelledby="carros-titulo">
+            <div class="cabecalho"><h2 id="carros-titulo"><span>DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES</span><span aria-hidden="true">DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES&nbsp;&nbsp;&nbsp; DESTAQUES</span></h2></div>
+            <div class="caixa">
+                <article class="card" tabindex="0" aria-label="Detalhes do Uno com Escada">
+                    <div class="card-front"><img src="img/uno.jpg" alt="Uno com escada"><div class="fix"><h3>2099 UNO com Escada</h3><p>Racha <span>Premio</span></p><h2>$80,500</h2><div class="fix2"><span class="material-symbols-outlined">explore_nearby</span><p>Brasil, RJ</p></div></div></div>
+                    <div class="card-back"><h3>2099 UNO com Escada</h3><p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p><h2>Informações</h2><p>2 portas</p><p>4 passageiros</p><p>Manual</p><a class="card-action" href="#contato">Alugar agora</a></div>
+                </article>
+                <article class="card" tabindex="0" aria-label="Detalhes do Uno com Escada">
+                    <div class="card-front"><img src="img/uno.jpg" alt="Uno com escada"><div class="fix"><h3>2099 UNO com Escada</h3><p>Racha <span>Premio</span></p><h2>$80,500</h2><div class="fix2"><span class="material-symbols-outlined">explore_nearby</span><p>Brasil, RJ</p></div></div></div>
+                    <div class="card-back"><h3>2099 UNO com Escada</h3><p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p><h2>Informações</h2><p>2 portas</p><p>4 passageiros</p><p>Manual</p><a class="card-action" href="#contato">Alugar agora</a></div>
+                </article>
+                <article class="card" tabindex="0" aria-label="Detalhes do Uno com Escada">
+                    <div class="card-front"><img src="img/uno.jpg" alt="Uno com escada"><div class="fix"><h3>2099 UNO com Escada</h3><p>Racha <span>Premio</span></p><h2>$80,500</h2><div class="fix2"><span class="material-symbols-outlined">explore_nearby</span><p>Brasil, RJ</p></div></div></div>
+                    <div class="card-back"><h3>2099 UNO com Escada</h3><p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p><h2>Informações</h2><p>2 portas</p><p>4 passageiros</p><p>Manual</p><a class="card-action" href="#contato">Alugar agora</a></div>
+                </article>
+                <article class="card" tabindex="0" aria-label="Detalhes do Uno com Escada">
+                    <div class="card-front"><img src="img/uno.jpg" alt="Uno com escada"><div class="fix"><h3>2099 UNO com Escada</h3><p>Racha <span>Premio</span></p><h2>$80,500</h2><div class="fix2"><span class="material-symbols-outlined">explore_nearby</span><p>Brasil, RJ</p></div></div></div>
+                    <div class="card-back"><h3>2099 UNO com Escada</h3><p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p><h2>Informações</h2><p>2 portas</p><p>4 passageiros</p><p>Manual</p><a class="card-action" href="#contato">Alugar agora</a></div>
+                </article>
+                <article class="card" tabindex="0" aria-label="Detalhes do Uno com Escada">
+                    <div class="card-front"><img src="img/uno.jpg" alt="Uno com escada"><div class="fix"><h3>2099 UNO com Escada</h3><p>Racha <span>Premio</span></p><h2>$80,500</h2><div class="fix2"><span class="material-symbols-outlined">explore_nearby</span><p>Brasil, RJ</p></div></div></div>
+                    <div class="card-back"><h3>2099 UNO com Escada</h3><p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p><h2>Informações</h2><p>2 portas</p><p>4 passageiros</p><p>Manual</p><a class="card-action" href="#contato">Alugar agora</a></div>
+                </article>
             </div>
-            
-            <div class="card card3">
-                <div class="card-front">
-                    <img src="img/uno.jpg" alt="image1">
-                    <div class="fix"> 
-                        <h1>2099 UNO com Escada</h1>
-                        <p>Racha <span>Premio</span></p>
-                        <h2>$80,500</h2>
-                        <div class="fix2">
-                            <span class="material-symbols-outlined">explore_nearby</span>
-                            <p>Brasil, RJ</p>
-                        </div>
-                    </div>
+        </section>
+        <section class="comments" id="sobre" aria-labelledby="comentarios-titulo">
+            <h2 id="comentarios-titulo">O que os clientes pensam</h2>
+            <div class="comments-carousel" aria-label="Depoimentos de clientes">
+                <button class="carousel-button previous" type="button" aria-label="Comentário anterior">&#8249;</button>
+                <div class="comments-caixa">
+                    <article class="commentar is-active"><div class="rating" aria-label="5 estrelas">★★★★★</div><p>Carro confortável, atendimento rápido e uma reserva muito simples. A equipe da YourCar deixou a viagem mais tranquila.</p></article>
+                    <article class="commentar" hidden><div class="rating" aria-label="5 estrelas">★★★★★</div><p>O carro estava limpo, bem cuidado e pronto no horário combinado. Recomendo para quem precisa alugar sem complicação.</p></article>
+                    <article class="commentar" hidden><div class="rating" aria-label="5 estrelas">★★★★★</div><p>Uma experiência diferente e divertida. O processo foi simples e o carro estava pronto no horário combinado.</p></article>
                 </div>
-                <div class="card-back">
-                    <h1>2099 UNO com Escada</h1>
-                    <p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p>
-                    <h2>Informações</h2>
-                    <p>2 portas</p>
-                    <p>4 passageiros</p>
-                    <p>Manual</p>
-                    <button>Alugar agora</button>
-                </div>
+                <button class="carousel-button next" type="button" aria-label="Próximo comentário">&#8250;</button>
             </div>
+            <div class="carousel-dots" aria-label="Selecionar comentário"><button class="dot is-active" type="button" aria-label="Mostrar comentário 1" aria-current="true"></button><button class="dot" type="button" aria-label="Mostrar comentário 2" aria-current="false"></button><button class="dot" type="button" aria-label="Mostrar comentário 3" aria-current="false"></button></div>
+        </section>
+    </main>
+    <footer class="site-footer" id="contato"><div class="footer-content"><div class="footer-section"><h3>Navegação</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#carros">Carros</a></li><li><a href="#sobre">Sobre nós</a></li></ul></div><div class="footer-section"><h3>Serviços</h3><ul><li><a href="#carros">Aluguel de carros</a></li><li><a href="#contato">Reserva de veículos</a></li><li><a href="#carros">SUVs e sedans</a></li></ul></div><div class="footer-section"><h3>Suporte</h3><ul><li><a href="#contato">Ajuda</a></li><li><a href="#contato">Entre em contato</a></li><li><a href="#contato">Política de privacidade</a></li></ul></div><div class="footer-section"><h3>Contato</h3><ul><li><a href="mailto:contato@yourcar.com">contato@yourcar.com</a></li><li><a href="tel:+5500000000000">(00) 00000-0000</a></li><li>Brasília - DF</li></ul></div></div><div class="footer-bottom"><p>© 2026 YourCar — Todos os direitos reservados.</p></div></footer>
+    <script>
+        const toggleCard = (card) => {
+            card.classList.toggle('is-flipped');
+        };
+        document.querySelectorAll('.card').forEach((card) => {
+            card.addEventListener('click', (event) => { if (!event.target.closest('a')) toggleCard(card); });
+            card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleCard(card); } });
+        });
+        const carousel = document.querySelector('.comments-carousel');
+        const comments = [...carousel.querySelectorAll('.commentar')];
+        const dots = [...document.querySelectorAll('.dot')];
+        let currentComment = 0;
+        const showComment = (index) => { currentComment = (index + comments.length) % comments.length; comments.forEach((comment, i) => { comment.hidden = i !== currentComment; comment.classList.toggle('is-active', i === currentComment); }); dots.forEach((dot, i) => { dot.classList.toggle('is-active', i === currentComment); dot.setAttribute('aria-current', i === currentComment ? 'true' : 'false'); }); };
+        carousel.querySelector('.previous').addEventListener('click', () => showComment(currentComment - 1));
+        carousel.querySelector('.next').addEventListener('click', () => showComment(currentComment + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => showComment(i)));
 
-
-            <div class="card card4">
-                <div class="card-front">
-                    <img src="img/uno.jpg" alt="image1">
-                    <div class="fix"> 
-                        <h1>2099 UNO com Escada</h1>
-                        <p>Racha <span>Premio</span></p>
-                        <h2>$80,500</h2>
-                        <div class="fix2">
-                            <span class="material-symbols-outlined">explore_nearby</span>
-                            <p>Brasil, RJ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <h1>2099 UNO com Escada</h1>
-                    <p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p>
-                    <h2>Informações</h2>
-                    <p>2 portas</p>
-                    <p>4 passageiros</p>
-                    <p>Manual</p>
-                    <button>Alugar agora</button>
-                </div>
-            </div>
-
-            <div class="card card5">
-                <div class="card-front">
-                    <img src="img/uno.jpg" alt="image1">
-                    <div class="fix"> 
-                        <h1>2099 UNO com Escada</h1>
-                        <p>Racha <span>Premio</span></p>
-                        <h2>$80,500</h2>
-                        <div class="fix2">
-                            <span class="material-symbols-outlined">explore_nearby</span>
-                            <p>Brasil, RJ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <h1>2099 UNO com Escada</h1>
-                    <p>Um carro simples, divertido e preparado para proporcionar uma experiência diferente.</p>
-                    <h2>Informações</h2>
-                    <p>2 portas</p>
-                    <p>4 passageiros</p>
-                    <p>Manual</p>
-                    <button>Alugar agora</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="comments">
-        <h1>O que os clientes pensam</h1>
-        <div class="comments-caixa">
-            <div class="commentar">
-                <div class="estrela">
-                    <h1>⭐⭐⭐⭐⭐</h1>
-                    <div class="detalhes"> 
-                        <p>Carro foda demais! Aluguei o Uno e curti muito a experiência. O carro é simples, divertido e aguenta o tranco, ganhei todos os rachas não tinha ninguem que aquente esse Uno com escada, Recomendo demais!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="commentar">
-                <div class="estrela">
-                    <h1>⭐⭐⭐⭐⭐</h1>
-                    <div class="detalhes"> 
-                        <p>Carro foda demais! Aluguei o Uno e curti muito a experiência. O carro é simples, divertido e aguenta o tranco, ganhei todos os rachas não tinha ninguem que aquente esse Uno com escada, Recomendo demais!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="commentar">
-                <div class="estrela">
-                    <h1>⭐⭐⭐⭐⭐</h1>
-                    <div class="detalhes"> 
-                        <p>Carro foda demais! Aluguei o Uno e curti muito a experiência. O carro é simples, divertido e aguenta o tranco ganhei todos os rachas não tinha ninguem que aquente esse Uno com escada, Recomendo demais!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Navegação</h3>
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Serviços</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Carros</a></li>
-                    <li><a href="#">Sobre Nós</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Serviços</h3>
-                <ul>
-                    <li><a href="#">Aluguel de carros</a></li>
-                    <li><a href="#">Reserva de veículos</a></li>
-                    <li><a href="#">Carros econômicos</a></li>
-                    <li><a href="#">SUVs</a></li>
-                    <li><a href="#">Sedans</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Suporte</h3>
-                <ul>
-                    <li><a href="#">Ajuda</a></li>
-                    <li><a href="#">entre em contato</a></li>
-                    <li><a href="#">Termos de Serviços</a></li>
-                    <li><a href="#">Politica de privacidade</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <ul>
-                    <li><a href="#">contato@yourcar.com</a></li>
-                    <li><a href="#">(00) 00000-0000</a></li>
-                    <li><a href="#">Brasília - DF</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 YourCar — Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('is-open');
+            menuToggle.classList.toggle('is-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        });
+        menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+            menu.classList.remove('is-open');
+            menuToggle.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Abrir menu');
+        }));
+    </script>
 </body>
 </html>
