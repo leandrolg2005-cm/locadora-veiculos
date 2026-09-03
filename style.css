@@ -10,7 +10,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    color: var(--black);
+    line-height: 1.5;
+    overflow-x: clip;
+}
+
+a:focus-visible,
+button:focus-visible,
+.card:focus-visible{
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
 }
 
 .topo{
@@ -22,7 +39,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px 30px;
+}
+
+.logo-link{
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle{
+    display: none;
 }
 
 .navbar img{
@@ -48,18 +76,22 @@
     color: #F5D000;
 }
 
-.btn button{
+.register-link{
+    display: inline-flex;
+    flex: 0 0 120px;
+    align-items: center;
+    justify-content: center;
     width: 120px;
     height: 40px;
     border-radius: 50px;
-    border: none;
+    border: 2px solid transparent;
     background-color: var(--branco);
     color: var(--black);
+    text-decoration: none;
     transition: all 0.5s;
-    cursor: pointer;
 }
 
-.btn button:hover{
+.register-link:hover{
     background-color: var(--azul);
     border: 2px solid var(--branco);
     color: var(--branco);
@@ -67,22 +99,25 @@
 
 .home{
     width: 100%;
-    min-height: 50vh;
+    min-height: 520px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 5%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 30px;
     gap: 40px;
 }
 
 .home-text{
     max-width: 37rem;
+    min-width: 0;
 }
 
 .home-text h1{
     font-size: 32px;
     margin-bottom: 20px;
-    line-height: 2rem;
+    line-height: 1.2;
 }
 
 .home-text p{
@@ -95,6 +130,7 @@
     text-decoration: none;
     background-color: var(--azul);
     color: var(--branco);
+    border: 2px solid transparent;
     border-radius: 30px;
     transition: all 0.5s;
 }
@@ -107,6 +143,9 @@
 
 .home-image{
     width: 50%;
+    max-width: 50%;
+    min-width: 0;
+    flex: 0 1 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,6 +153,7 @@
 
 .home-image img {
     width: 100%;
+    min-width: 0;
     max-width: 700px;
     height: auto;
     display: block;
@@ -122,22 +162,24 @@
 .cabecalho{
     display: flex;
     overflow: hidden;
-    white-space: nowrap;
+    width: 100%;
     background-color: #275BF5;
     padding: 10px 0;
 }
 
-.cabecalho h1{
+.cabecalho h2{
     font-size: 34px;
     color: var(--branco);
-    font-family: "Scoutie Sans", sans-serif;
-    font-optical-sizing: auto;
-    
-    display: inline-block;
-    animation-name: slideLeft;
-    animation-duration: 15s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    font-weight: 600;
+    display: flex;
+    width: max-content;
+    animation: slideLeft 12s linear infinite;
+}
+
+.cabecalho h2 span{
+    display: block;
+    flex: 0 0 auto;
+    padding-right: 2rem;
 }
 
 @keyframes slideLeft{
@@ -150,27 +192,45 @@
 }
 
 .caixa{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-content: center;
-    flex-wrap: wrap; 
+    max-width: 1280px;
+    margin: 0 auto;
+    perspective: 1200px;
     gap: 20px;
-    padding: 20px;
+    padding: 32px 20px 48px;
 }
 
 .card{
     position: relative;
-    margin: 10px;
+    width: 100%;
     background-color: var(--branco);
-    height: 330px;
-    width: 300px;
+    height: 350px;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin: center;
+    -webkit-transform-origin: center;
+    will-change: transform;
 }
 
-.card:hover{
-    transform: rotateY(-180deg);
+.card.is-flipped{
+    transform: rotateY(180deg) !important;
+    -webkit-transform: rotateY(180deg) !important;
+}
+
+@media (hover: hover) and (pointer: fine){
+    .card:hover{
+        transform: rotateY(180deg);
+    }
+}
+
+.card.is-flipped .card-front,
+.card.is-flipped .card-back{
+    cursor: default;
 }
 
 .card-front,
@@ -193,6 +253,7 @@
 
 .card-front img {
     width: 100%;
+    max-width: 100%;
     height: 180px; 
     object-fit: cover; 
     border-top-left-radius: 10px;
@@ -227,17 +288,19 @@
     line-height: 1.5;
 }
 
-.card-back button {
+.card-action {
+    display: block;
     margin-top: auto;
     padding: 10px;
     border: none;
     border-radius: 25px;
     background-color: var(--azul);
     color: var(--branco);
-    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
-.card-back button:hover{
+.card-action:hover{
     color: var(--azul);
     background-color: var(--branco);
     border: 2px solid var(--azul);
@@ -247,11 +310,11 @@
     font-size: 17px;
 }
 
-.card h2{
+.card-front h2{
     font-size: 17px;
-    margin-top: 20px;
+    margin-top: 12px;
     color: var(--azul);
-    padding: 8px 0px;
+    padding: 4px 0;
 }
 
 .card p{
@@ -261,23 +324,26 @@
 
 .fix{
     margin: 10px;
+    min-height: 140px;
 }
 
-span{
+.fix span{
     color: 	var(--gold);
 }
 
 .material-symbols-outlined{
-    margin-top: 10px;
+    line-height: 1;
 }
 
 .fix2{
     display: flex;
-    padding: 6px 0px;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 0 0;
 }
 
 .fix2 p{
-    padding: 15px 5px;
+    padding: 0;
 }
 
 
@@ -286,10 +352,12 @@ span{
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin: 40px 0;
+    max-width: 1280px;
+    margin: 40px auto 70px;
+    padding: 0 20px;
 }
 
-.comments > h1 {
+.comments > h2 {
     font-size: 28px;
     font-family: "Poppins", sans-serif;
     color: var(--black);
@@ -297,30 +365,83 @@ span{
 }
 
 .comments-caixa {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 30px;
+    width: 100%;
+    display: block;
+}
+
+.comments-carousel{
+    width: min(100%, 900px);
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr) 52px;
+    align-items: center;
+    gap: 16px;
 }
 
 .commentar {
     background-color: var(--branco);
-    height: 250px;
-    width: 400px;
+    min-height: 280px;
+    width: 100%;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    padding: 20px; 
+    padding: 34px 44px;
 }
 
-.commentar .estrela h1 {
-    font-size: 20px;
-    margin-bottom: 15px;
+.commentar[hidden]{
+    display: none;
 }
 
-.detalhes p {
+.rating{
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+.commentar p {
     color: var(--cinza);
-    font-size: 13px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.carousel-button{
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--azul);
+    color: var(--branco);
+    font-size: 38px;
+    line-height: 38px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.carousel-button:hover{
+    background-color: var(--black);
+    transform: scale(1.08);
+}
+
+.carousel-dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #b7c5ec;
+    cursor: pointer;
+}
+
+.dot.is-active{
+    background-color: var(--azul);
+    transform: scale(1.25);
 }
 
 .site-footer{
@@ -328,9 +449,12 @@ span{
 }
 
 .footer-content{
-    display: flex;
-    justify-content: space-between;
-    padding: 1vw 12vw;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px 30px;
 }
 
 .footer-section h3{
@@ -365,23 +489,81 @@ span{
     padding-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; 
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .nav {
-        gap: 15px; 
-    }
-
-    .nav a {
-        font-size: 16px; 
-    }
+@media (max-width: 900px) {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        position: relative;
+        min-height: 70px;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .navbar img{
+        width: 140px;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        z-index: 10;
+        top: 70px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: var(--azul);
+        box-shadow: 0 10px 24px rgba(28, 28, 28, 0.2);
+    }
+
+    .nav.is-open{
+        display: flex;
+    }
+
+    .nav a {
+        display: block;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .menu-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span{
+        display: block;
+        width: 26px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: var(--branco);
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .menu-toggle.is-open span:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open span:nth-child(2){
+        opacity: 0;
+    }
+
+    .menu-toggle.is-open span:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .home {
         flex-direction: column-reverse; 
         text-align: center;
@@ -398,15 +580,21 @@ span{
 
     .home-image {
         width: 100%;
+        max-width: 100%;
+        flex-basis: 100%;
     }
 
     .home-image img {
-        max-width: 100%; 
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
-}
 
-@media (max-width: 768px) {
     .caixa {
+        grid-template-columns: minmax(0, 320px);
+        justify-content: center;
+        width: 100%;
+        perspective: none;
         padding: 10px;
         gap: 15px;
     }
@@ -414,14 +602,116 @@ span{
     .card {
         width: 100%; 
         max-width: 320px; 
+        height: 350px;
+        transform-origin: center center;
+        transition: transform 0.55s ease-in-out;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+    }
+
+    .card:hover{
+        transform: none !important;
+        -webkit-transform: none !important;
+    }
+
+    .card.is-flipped{
+        transform: rotateY(180deg) !important;
+    }
+
+    .comments-caixa{
+        width: 100%;
+    }
+
+    .comments-carousel{
+        grid-template-columns: 42px minmax(0, 1fr) 42px;
+        gap: 8px;
+    }
+
+    .commentar{
+        min-height: 300px;
+        padding: 26px 22px;
+    }
+
+    .commentar p{
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .carousel-button{
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px 20px;
+        gap: 30px;              
+    }
+
+    .register-link{
+        flex: 0 0 84px !important;
+        width: 84px !important;
+        height: 34px !important;
+        font-size: 12px;
     }
 }
 
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column; 
-        padding: 30px 20px;     
-        gap: 30px;              
+@media (max-width: 480px) {
+    .navbar{
+        padding: 12px 16px;
+    }
+
+    .navbar img{
+        width: 140px !important;
+    }
+
+    .nav{
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .nav a{
+        font-size: 13px;
+    }
+
+    .register-link{
+        flex: 0 0 34px;
+        width: 96px;
+        height: 34px;
+    }
+
+    .home{
+        min-height: 0;
+        padding: 30px 16px 50px;
+    }
+
+    .home-btn{
+        width: 100%;
+        padding-inline: 20px;
+        text-align: center;
+    }
+
+    .cabecalho h2{
+        font-size: 26px;
+    }
+
+    .footer-content{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto;
+    }
+}
+
+@media (max-width: 440px){
+    .navbar{
+        padding: 12px 45px;
     }
 }
 
