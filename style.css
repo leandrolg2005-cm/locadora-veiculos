@@ -25,6 +25,10 @@
     padding: 10px 30px
 }
 
+.menu-hamburguer {
+    display: none;
+}
+
 .navbar img{
     width: 200px;
 }
@@ -165,13 +169,15 @@
     width: 300px;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    transition: transform 0.8s;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
 
-.card:hover{
+.card.virado{
     transform: rotateY(-180deg);
 }
+
+
 
 .card-front,
 .card-back {
@@ -296,20 +302,73 @@ span{
     text-align: center;
 }
 
+.comments-carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
 .comments-caixa {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
+    justify-content: flex-start;
+    flex-wrap: nowrap; 
     gap: 30px;
+    width: 900px;
+    overflow: hidden;
+}
+
+.prev,
+.next {
+    width: 10px;
+    height: 0px;
+    border: none;
+    border-radius: none;
+    color: var(--azul);
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+    color: var(--gold);
 }
 
 .commentar {
+    flex-shrink: 0;
     background-color: var(--branco);
-    height: 250px;
-    width: 400px;
+    height: 300px;  
+    width: 900px;
     border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    padding: 20px; 
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    padding: 20px;
+    transition: transform 0.5s;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.bolinha {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background-color: var(--cinza);
+
+    cursor: pointer;
+}
+
+.bolinha.ativa {
+    background-color: var(--azul);
 }
 
 .commentar .estrela h1 {
@@ -366,19 +425,55 @@ span{
 }
 
 @media (max-width: 768px) {
+
     .navbar {
-        flex-direction: column; 
-        gap: 15px;
-        padding: 15px;
+        position: relative;
+        flex-direction: row;
+        padding: 10px 15px;
     }
 
     .nav {
-        gap: 15px; 
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--azul);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 0;
     }
 
-    .nav a {
-        font-size: 16px; 
+    .navbar img{
+        width: 150px;
     }
+
+    .nav.ativo {
+        display: flex;
+    }
+
+    .menu-hamburguer {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--branco);
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .btn button {
+        width: 100px;
+    }
+
+    .next{
+        margin-right: 10px;
+    }
+
+    .prev{
+        margin-left: 10px;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -415,6 +510,14 @@ span{
         width: 100%; 
         max-width: 320px; 
     }
+
+    .comments-caixa {
+        width: 85%;
+    }
+
+    .commentar {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -424,4 +527,13 @@ span{
         gap: 30px;              
     }
 }
+
+@media (min-width: 769px) {
+
+    .card:hover {
+        transform: rotateY(-180deg);
+    }
+
+}
+
 
